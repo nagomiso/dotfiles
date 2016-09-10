@@ -41,4 +41,7 @@ alias ll="ls -l"
 alias vim="nvim"
 alias vi="nvim"
 
+# TeXLive
+PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
+
 export XDG_CONFIG_HOME=$HOME/.config

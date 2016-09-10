@@ -6,7 +6,7 @@ if &compatible
 endif
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin(expand('~/.vim/dein'))
+call dein#begin(expand('~/.config/nvim/dein'))
   " パッケージ管理
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
@@ -21,6 +21,9 @@ call dein#begin(expand('~/.vim/dein'))
   call dein#add('marcus/rsense')
   " Python
   call dein#add('davidhalter/jedi-vim')
+  " TeX
+  call dein#add('lervag/vimtex')
+  call dein#add('thinca/vim-quickrun')
 
   " 静的解析
   call dein#add('scrooloose/syntastic')
@@ -34,6 +37,13 @@ call dein#begin(expand('~/.vim/dein'))
 call dein#end()
 
 let g:deoplete#enable_at_startup = 1
+let g:quickrun_config = {
+\   'tex': {
+\       'command': 'latexmk',
+\       'exec': ['%c -gg -pdfdvi %s', 'open %s:r.pdf']
+\   },
+\}
+
 " --------------------------------
 " 基本設定
 " --------------------------------
