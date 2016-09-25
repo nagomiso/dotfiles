@@ -1,7 +1,7 @@
 set runtimepath+=~/.config/nvim
 runtime! userautoload/*.vim
 
-if &compatible
+if !&compatible
    set nocompatible
 endif
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
@@ -16,9 +16,11 @@ call dein#begin(expand('~/.config/nvim/dein'))
   call dein#add('Shougo/vimshell.git')
   call dein#add('vim-scripts/taglist.vim.git')
   call dein#add('Lokaltog/vim-powerline.git')
+  call dein#add('itchyny/lightline.vim')
+
   call dein#add('Shougo/deoplete.nvim')
   " Ruby
-  call dein#add('marcus/rsense')
+  call dein#add('osyo-manga/vim-monster')
   " Python
   call dein#add('davidhalter/jedi-vim')
   " TeX
@@ -43,6 +45,10 @@ let g:quickrun_config = {
 \       'exec': ['%c -gg -pdfdvi %s', 'open %s:r.pdf']
 \   },
 \}
+
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.ruby =
+\ ['[^. *\t]\.\w*', '\h\w*::']
 
 " --------------------------------
 " 基本設定
