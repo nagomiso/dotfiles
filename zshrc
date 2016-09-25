@@ -40,8 +40,13 @@ alias la="ls -a"
 alias ll="ls -l"
 alias vim="nvim"
 alias vi="nvim"
+alias gvim="pynvim"
 
 # TeXLive
 PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
 
+# nvimの設定ファイルを配置するディレクトリ
 export XDG_CONFIG_HOME=$HOME/.config
+
+# デフォルトのエディタ設定
+export EDITOR=nvim
