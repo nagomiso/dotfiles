@@ -15,12 +15,11 @@ call dein#begin(expand('~/.config/nvim/dein'))
   call dein#add('Shougo/unite.vim.git')
   call dein#add('Shougo/vimshell.git')
   call dein#add('vim-scripts/taglist.vim.git')
-  call dein#add('Lokaltog/vim-powerline.git')
   call dein#add('itchyny/lightline.vim')
 
   call dein#add('Shougo/deoplete.nvim')
   " Ruby
-  call dein#add('osyo-manga/vim-monster')
+  "call dein#add('osyo-manga/vim-monster')
   " Python
   call dein#add('davidhalter/jedi-vim')
   " TeX
@@ -30,7 +29,9 @@ call dein#begin(expand('~/.config/nvim/dein'))
   " 静的解析
   call dein#add('scrooloose/syntastic')
   call dein#add('kevinw/pyflakes-vim')
-  call dein#add('nvie/vim-flake8')
+
+  " elixir
+  call dein#add('elixir-lang/vim-elixir')
 
   " カラースキーマ
   call dein#add('w0ng/vim-hybrid')
@@ -47,8 +48,8 @@ let g:quickrun_config = {
 \}
 
 let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.ruby =
-\ ['[^. *\t]\.\w*', '\h\w*::']
+"let g:deoplete#omni_patterns.ruby =
+"\ ['[^. *\t]\.\w*', '\h\w*::']
 
 " --------------------------------
 " 基本設定
@@ -129,6 +130,7 @@ set expandtab
 set shiftwidth=4
 set smarttab
 set tabstop=4
+set mouse=
 " backspaceキーの挙動を設定する
 " indent        : 行頭の空白の削除を許す
 " eol           : 改行の削除を許す
