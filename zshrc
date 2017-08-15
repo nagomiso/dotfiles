@@ -62,5 +62,5 @@ then
   export PATH=$HOME/.anyenv/bin:$PATH
   eval "$(anyenv init -)"
 fi
-export LD_LIBRARY_PATH=/opt/openssl-1.0.2k/lib:/opt/mariadb-10.1.21/lib
-export PATH=/opt/mariadb-10.1.21/bin:/opt/mariadb-10.1.21/scripts:$PATH
+export LD_LIBRARY_PATH=/opt/openssl-1.0.2k/lib
+export PATH=$HOME/local/bin:/usr/sbin:$PATH
