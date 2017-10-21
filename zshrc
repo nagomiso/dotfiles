@@ -62,5 +62,9 @@ then
   export PATH=$HOME/.anyenv/bin:$PATH
   eval "$(anyenv init -)"
 fi
-export LD_LIBRARY_PATH=/opt/openssl-1.0.2k/lib
-export PATH=$HOME/local/bin:/usr/sbin:$PATH
+export LD_LIBRARY_PATH=/opt/openssl-1.0.2k/lib:$LD_LIBRARY_PATH
+export PATH=$HOME/local/bin:/usr/sbin:/opt/jubatus/bin:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/nagomiso/.sdkman"
+[[ -s "/home/nagomiso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nagomiso/.sdkman/bin/sdkman-init.sh"
