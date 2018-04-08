@@ -68,3 +68,4 @@ export PATH=$HOME/local/bin:/usr/sbin:/opt/jubatus/bin:$PATH
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/nagomiso/.sdkman"
 [[ -s "/home/nagomiso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nagomiso/.sdkman/bin/sdkman-init.sh"
+export VTE_VERSION="100"
