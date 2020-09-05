@@ -11,6 +11,19 @@ WHITE=$'\e[37m'   # White
 GRAY=$'\e[90m'    # Gray
 RESET=$'\e[m'
 
+function check_result {
+    if [ "$?" -eq 0 ]; then
+        mark='  '
+    else
+        mark="${RED}✖${RESET} "
+    fi
+    echo -e "${mark} "
+}
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 # some more ls aliases
 if which exa > /dev/null; then
     alias ls='exa'
@@ -18,10 +31,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/.local/bin" ]; then
@@ -64,8 +73,8 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
 if [ "$(type -t __git_ps1)" = "function" ]; then
-    PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\] "'$(__git_ps1 "(%s)")'"\[${RESET}\]\n\$ "
+    PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\] "'$(__git_ps1 "(%s)")'"\[${RESET}\]\n\$(check_result)\$ "
 else
-    PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\]\[${RESET}\]\n\$ "
+    PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\]\[${RESET}\]\n\$(check_result)\$ "
 fi
 export EDITOR='vim'
