@@ -4,6 +4,9 @@ my dotfiles.
 
 ```bash
 dotfiles/
+├── bashrc
 ├── README.md
-└── bashrc
+└── vscode/
+    └── settings.json
 ```
+
