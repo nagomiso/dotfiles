@@ -49,8 +49,6 @@
     "notebook.kernelProviderAssociations": [
     ],
     "go.useLanguageServer": true,
-    "go.goroot": "/home/jovyan/.gvm/gos/go1.15.3",
-    "go.gopath": "/home/jovyan/data/nagomiso/develop/go",
     "[go]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
