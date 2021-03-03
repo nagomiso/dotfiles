@@ -24,14 +24,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# some more ls aliases
-if which exa > /dev/null; then
-    alias ls='exa'
-fi
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/.local/bin" ]; then
     PATH="${HOME}/.local/bin:${PATH}"
@@ -50,7 +42,7 @@ if [ -d "${HOME}/.poetry/bin" ]; then
 fi
 
 export PATH=${PATH}
-if which anyenv > /dev/null; then
+if type anyenv > /dev/null 2>&1; then
     eval "$(anyenv init -)"
 fi
 
@@ -72,9 +64,27 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
-if [ "$(type -t __git_ps1)" = "function" ]; then
-    PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\] "'$(__git_ps1 "(%s)")'"\[${RESET}\]\n\$(check_result)\$ "
-else
-    PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\]\[${RESET}\]\n\$(check_result)\$ "
-fi
 export EDITOR='vim'
+
+# some more ls aliases
+if type exa > /dev/null 2>&1; then
+    alias ls='exa'
+fi
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+
+if type starship > /dev/null 2>&1; then
+    if [ "${BASH_VERSINFO[0]}" -gt 4 ] || ([ "${BASH_VERSINFO[0]}" -eq 4 ] && [ "${BASH_VERSINFO[1]}" -ge 1 ]); then
+        source <(starship init bash --print-full-init)
+    else
+        source /dev/stdin <<<"$(starship init bash --print-full-init)"
+    fi
+else
+    if [ "$(type -t __git_ps1)" = "function" ]; then
+        PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\] "'$(__git_ps1 "(%s)")'"\[${RESET}\]\n\$(check_result)\$ "
+    else
+        PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\]\[${RESET}\]\n\$(check_result)\$ "
+    fi
+fi
