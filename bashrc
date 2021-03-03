@@ -78,3 +78,10 @@ else
     PS1="\[${YELLOW}\]\u\[${REST}\] \[${PURPLE}\]\w\[${RESET}\]\[${CYAN}\]\[${RESET}\]\n\$(check_result)\$ "
 fi
 export EDITOR='vim'
+
+if [ "${BASH_VERSINFO[0]}" -gt 4 ] || ([ "${BASH_VERSINFO[0]}" -eq 4 ] && [ "${BASH_VERSINFO[1]}" -ge 1 ])
+then
+    source <("/home/nagomiso/.cargo/bin/starship" init bash --print-full-init)
+else
+    source /dev/stdin <<<"$("/home/nagomiso/.cargo/bin/starship" init bash --print-full-init)"
+fi
