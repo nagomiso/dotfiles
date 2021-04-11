@@ -40,6 +40,11 @@ fi
 if [ -d "${HOME}/.poetry/bin" ]; then
     PATH="${HOME}/.poetry/bin:${PATH}"
 fi
+# Go
+if [ -d "/usr/local/go/bin" ]; then
+    PATH="/usr/local/go/bin:${PATH}"
+fi
+
 
 export PATH=${PATH}
 if type anyenv > /dev/null 2>&1; then
