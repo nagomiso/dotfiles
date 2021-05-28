@@ -1,7 +1,7 @@
 font:
   normal:
     family: "HackGen Console"
-  size: 12
+  size: 10
 # Colors (Molokai Dark)
 colors:
   # Default colors
@@ -28,3 +28,6 @@ colors:
     magenta: '#AE81FF'
     cyan:    '#66D9EF'
     white:   '#F8F8F2'
+east_asian_fullwidth: true
+key_bindings:
+- { key: "LBracket", mods: Control, chars: "\x1b" }
