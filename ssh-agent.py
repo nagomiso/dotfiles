@@ -1,5 +1,4 @@
 #! /usr/bin/python3.9
-"""ssh-agentが無限に増え続けないようにするためのラッパー"""
 from __future__ import annotations
 
 import os
@@ -52,6 +51,7 @@ def main() -> None:
                 os.kill(int(pid), signal.SIGTERM)
             except OSError as err:
                 sys.stderr.write(f"{err}\n")
+                sys.stderr.flush()
         ssh_agent_stdout = sp.run(
             ["ssh-agent"],
             text=True,
