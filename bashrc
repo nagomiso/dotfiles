@@ -40,6 +40,12 @@ fi
 if [ -d "${HOME}/.poetry/bin" ]; then
     PATH="${HOME}/.poetry/bin:${PATH}"
 fi
+# Go
+if [ -d "/usr/local/go/bin" ]; then
+    PATH="/usr/local/go/bin:${PATH}"
+    export GOROOT="/usr/local/go"
+fi
+
 
 export PATH=${PATH}
 if type anyenv > /dev/null 2>&1; then
@@ -73,6 +79,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias k='kubectl'
 
 
 if type starship > /dev/null 2>&1; then
